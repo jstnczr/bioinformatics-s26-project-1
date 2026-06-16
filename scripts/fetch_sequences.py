@@ -23,7 +23,12 @@ with open(output_file, "w") as out_handle:
         print(f"Downloading {enzyme_name}...")
 
         # Fetch the sequence data in FASTA format
-        handle = Entrez.efetch(db="protein", id=accession, rettype="fasta", retmode="text")
+        handle = Entrez.efetch(
+            db="protein",
+            id=accession,
+            rettype="fasta",
+            retmode="text"
+        )
         
         # Read sequence and rename to know which enzyme it is
         record = SeqIO.read(handle, "fasta")

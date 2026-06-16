@@ -1,0 +1,13 @@
+# Data files
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Mac system files
+.DS_Store
+
+# R temporary files
+.Rhistory
+.RData

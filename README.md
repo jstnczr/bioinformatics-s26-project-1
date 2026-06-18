@@ -40,7 +40,7 @@ the sequence level?
 | 3 | `distance_matrix.py` | Pairwise % identity between all enzymes |
 | 4 | `phylo_tree.R` | Neighbor-Joining phylogenetic tree |
 | 5 | `conserved_regions.R` | Identify conserved positions across PET hydrolases |
-| 6 | `pymol_visualization.pml` | Visualize conserved residues on PETase structure *(in progress)* |
+| 6 | `pymol_visualization.pml` | Visualize catalytic triad (Ser160, Asp206, His237) on PETase crystal structure (PDB: 6EQE) |
 
 ---
 
@@ -59,18 +59,17 @@ The phylogenetic tree confirms these relationships. PETase, Cut1, and Tcur1278
 cluster together on the same branch with strong bootstrap support, suggesting 
 PETase shares evolutionary ancestry with cutinase and lipase-type serine hydrolases. 
 This is interesting because Cut1 and Tcur1278 naturally break down cutin and 
-plant polyesters respectively, not PET — yet they are PETase's closest relatives. 
+plant polyesters respectively, not PET, yet they are PETase's closest relatives. 
 This supports the idea that PETase evolved from a pre-existing serine hydrolase 
 that gradually adapted to degrade PET. alkB and MHETase both sit on long isolated 
 branches, consistent with their distinct biochemical mechanisms.
 
 Conservation analysis identified 113 fully conserved positions out of 775 total 
 alignment positions (14.6%) across PETase, Cut1, and Tcur1278. Among these are 
-the catalytic triad residues Ser-His-Asp at positions 223, 224, and 317 of the 
-alignment. These three amino acids are responsible for the ester bond hydrolysis 
-that breaks PET down into its monomers. Their conservation across all three enzymes 
-confirms they are the functional core of PET hydrolase activity and would need to 
-be preserved in any protein engineering effort.
+the catalytic triad residues Ser160, Asp206, and His237 (PETase PDB numbering), 
+confirmed conserved across all three PET hydrolases and responsible for ester bond 
+hydrolysis. Structural visualization in PyMOL confirmed all three residues cluster 
+together in the active site of the PETase crystal structure (PDB: 6EQE).
 
 ---
 
@@ -80,6 +79,7 @@ be preserved in any protein engineering effort.
 |--------|-------------|
 | `results/phylogenetic_tree.png` | Rooted NJ tree with bootstrap support |
 | `results/conservation_profile.png` | Conservation profile across alignment |
+| `results/petase_structure.png` | PETase crystal structure with catalytic triad highlighted |
 
 ---
 
@@ -89,7 +89,9 @@ be preserved in any protein engineering effort.
 pip install biopython
 ```
 
-Place `muscle-win64.v5.3.exe` in project root, then:
+Download the appropriate MUSCLE executable for your OS from 
+https://github.com/rcedgar/muscle/releases and place it in 
+the project root. This repo includes the Windows 64-bit version.
 
 ```bash
 python scripts/fetch_sequences.py
@@ -103,10 +105,13 @@ source("scripts/phylo_tree.R")
 source("scripts/conserved_regions.R")
 ```
 
+In PyMOL (open the application and run in the command line): 
+@scripts/pymol_visualization.pml
+
 ---
 
 ## Tools
-Python 3.13, Biopython, MUSCLE v5.3, R 4.3, ape, ggplot2
+Python 3.13, Biopython, MUSCLE v5.3, R 4.3, ape, ggplot2, PyMOL
 
 ---
 

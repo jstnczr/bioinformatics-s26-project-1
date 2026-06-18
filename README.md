@@ -48,17 +48,17 @@ the sequence level?
 
 PETase, Cut1, and Tcur1278 all share around 45-54% sequence identity with each 
 other, grouping together on the phylogenetic tree with strong bootstrap support. 
-This suggests they share a common evolutionary ancestor — PETase likely evolved 
+This suggests they share a common evolutionary ancestor. PETase likely evolved 
 from a cutinase or lipase-type enzyme that adapted over time to degrade PET 
 specifically. MHETase, despite coming from the same organism as PETase, shares 
 less than 10% identity with the other PET hydrolases and sits on its own branch 
-entirely — it's a structurally different enzyme that just happens to work alongside 
-PETase in *I. sakaiensis*. alkB is the most distant of all, consistent with it 
-being a completely different class of enzyme targeting polyethylene rather than PET.
+entirely. It is a structurally different enzyme that works alongside PETase in 
+*I. sakaiensis*. alkB is the most distant of all, consistent with it being a 
+completely different class of enzyme targeting polyethylene rather than PET.
 
 Conservation analysis found 109 positions (14.2% of the alignment) that are 
 identical across PETase, Cut1, and Tcur1278. Among these are the catalytic triad 
-residues Ser, His, and Asp — the three amino acids that actually perform the 
-chemistry of breaking PET's ester bonds. These conserved positions are the 
-functional core of PET hydrolase activity and would need to be preserved in any 
-protein engineering effort.
+residues Ser, His, and Asp, the three amino acids that perform the chemistry of 
+breaking PET's ester bonds. These conserved positions are the functional core of 
+PET hydrolase activity and would need to be preserved in any protein engineering 
+effort.

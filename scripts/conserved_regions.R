@@ -10,11 +10,11 @@ seq_matrix <- as.matrix(seqs)
 char_matrix <- t(apply(seq_matrix, 1, function(x) strsplit(paste(rawToChar(x), collapse=""), "")[[1]]))
 rownames(char_matrix) <- rownames(seq_matrix)
 
-# Find conserved positions across PETase and cutinases only
+# Find conserved positions across PETase and serine hydrolases only
 # (excluding alkB and MHETase as they are different enzyme families)
 pet_cut_names <- c("PETase_Ideonella_sakaiensis", 
                    "Cutinase_Thermobifida_fusca", 
-                   "Cutinase_Thermonospora_curvata")
+                   "Lipase_Thermonospora_curvata")
 
 # Subset matrix to just these three enzymes
 pet_cut_matrix <- char_matrix[pet_cut_names, ]
@@ -26,7 +26,7 @@ conserved <- apply(pet_cut_matrix, 2, function(pos) {
 
 # Count and report conserved positions
 num_conserved <- sum(conserved)
-cat("Number of conserved positions across PETase and cutinases:", num_conserved, "\n")
+cat("Number of conserved positions across PETase and serine hydrolases:", num_conserved, "\n")
 cat("Out of total alignment length:", ncol(char_matrix), "positions\n")
 cat("Percentage conserved:", round(num_conserved/ncol(char_matrix)*100, 1), "%\n")
 
@@ -58,7 +58,7 @@ p <- ggplot(plot_data, aes(x=position, y=conservation,
   scale_fill_manual(values=c("FALSE"="steelblue", "TRUE"="darkred"),
                     labels=c("Partially conserved", "Fully conserved"),
                     name="") +
-  labs(title="Sequence Conservation Profile: PETase and Cutinases",
+  labs(title="Conserved Residues Across PET-Degrading Serine Hydrolases",
        x="Alignment Position",
        y="Conservation Score (1.0 = fully conserved)") +
   theme_minimal() +

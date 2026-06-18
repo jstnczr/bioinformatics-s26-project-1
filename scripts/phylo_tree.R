@@ -16,7 +16,7 @@ tree <- root(tree, outgroup="alkB_Pseudomonas_oleovorans", resolve.root=TRUE)
 
 # Bootstrap BEFORE renaming labels
 boot <- boot.phylo(tree, seq_matrix, function(x) root(nj(dist.aa(x)), 
-                                                      outgroup="alkB_Pseudomonas_oleovorans", resolve.root=TRUE))
+                                                      outgroup="alkB_Pseudomonas_oleovorans", resolve.root=TRUE),B=1000)
 
 # Clean up tip labels AFTER bootstrap
 tree$tip.label <- gsub("_", " ", tree$tip.label)
